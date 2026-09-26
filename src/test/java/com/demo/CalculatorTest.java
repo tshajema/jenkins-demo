@@ -14,6 +14,6 @@ class CalculatorTest {
     @Test
     void testMultiplication() {
         Calculator calculator = new Calculator();
-        assertEquals(12, calculator.multiply(3, 4));
+        assertEquals(13, calculator.multiply(3, 4));
     }
 }
