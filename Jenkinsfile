@@ -1,17 +1,16 @@
 pipeline {
 
-    agent any
+    agent {
+        label 'maven'
+    }
 
     stages {
 
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Build') {
             steps {
+                echo "Building on ${NODE_NAME}"
+                sh 'java -version'
+                sh 'mvn -version'
                 sh 'mvn clean compile'
             }
         }
@@ -27,7 +26,5 @@ pipeline {
                 sh 'mvn package -DskipTests'
             }
         }
-
     }
-
 }
